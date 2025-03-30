@@ -46,7 +46,7 @@ This project is a RESTful API for managing a book collection. It is built to per
    cd your-repo-name
 2. **Note:**
     need to create .env file and add
-    MONGO_URI 
+    MONGO_URI and 
     JWT_SECRET
     
 
