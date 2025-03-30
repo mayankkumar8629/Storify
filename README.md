@@ -44,3 +44,9 @@ This project is a RESTful API for managing a book collection. It is built to per
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+2. **Note:**
+    need to create .env file and add
+    MONGO_URI 
+    JWT_SECRET
+    
+
