@@ -1,6 +1,6 @@
 # Storify
 
-This project is a RESTful API for managing a book collection. It is built to perform basic CRUD operations on books and includes user authentication using JWT. The API is designed to be modular, secure, and production-ready.
+This project is a RESTful API for managing a book collection. It is built to perform basic CRUD operations on books and includes user authentication using JWT. The API is designed to be modular and secure.
 
 # Deployed Link(BACKEND)
 https://storify-7qsw.onrender.com
