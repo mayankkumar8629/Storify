@@ -42,10 +42,14 @@ app.use(express.urlencoded({extended:true}));
 //importing the routes
 import authRoutes from "./routes/auth.route.js";
 import bookRoutes from "./routes/book.route.js";
+import searchRoutes from "./routes/search.route.js";
+import reviewRoutes from "./routes/review.route.js";
 
 
 app.use("/user",authRoutes);
 app.use("/book",bookRoutes);
+app.use("/book",searchRoutes);
+app.use("/book",reviewRoutes);
 
 app.listen(PORT,()=>{
     console.log(`Listening on PORT ${PORT}`);

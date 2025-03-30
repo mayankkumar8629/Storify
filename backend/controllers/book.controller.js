@@ -3,19 +3,43 @@ import Book from "../models/book.js";
 
 export const getAllBooks = async(req,res)=>{
 
-    try{
-        const books=await Book.find();
-        return res.status(200).json(books);
-    }catch(error){
-        console.error("Error in retrieving books",error.message);
-        res.status(500).json({message:"Error in getting books",error});
+   try{
+    const {page,limit}=req.query;
+    
+    let books,total;
+
+    if(!page && !limit){
+        books = await Book.find({});
+        total=books.length;
+        return res.status(200).json({
+            data:books,
+            total,
+            message:"All books returned(no pagenation query)"
+        });
+    }else{
+        const pageNumber= parseInt(page,10) || 1;
+        const limitNumber = parseInt(limit,10) || 10;
+        const skip = (pageNumber - 1 ) * limitNumber;
+
+        books= await Book.find({}).skip(skip).limit(limitNumber);
+        total = await Book.countDocuments({});
+
+        return res.status(200).json({
+            data:books,
+            total,
+            page:pageNumber
+        });
     }
+
+   }catch(error){
+        res.status(500).json({message:error.message});
+   }
 }
 
 export const getBookById = async(req,res)=>{
     try{
         const {id}=req.params;
-        const book=await Book.findById(id);
+        const book=await Book.findById(id).populate("review");
         if(!book){
             res.status(404).json({message:"Book does not exists"});
         }
