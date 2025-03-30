@@ -44,3 +44,7 @@ This project is a RESTful API for managing a book collection. It is built to per
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+## NOTE 
+    if the deployed backend is not working then create a .env file and add
+    MONGO_URI=MONGO_URI=mongodb+srv://mayankkumarverma306:14102003@cluster0.8d9n9ew.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    JWT_SECRET="mysecretkey"
